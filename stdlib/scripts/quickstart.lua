@@ -81,13 +81,13 @@ function quickstart.on_player_created(event)
         end
 
         local power_armor = QS.get('power_armor', 'fake')
-        if player.character and game.item_prototypes[power_armor] then
+        if player.character and prototypes.item[power_armor] then
             --Put on power armor, install equipment
             player.get_inventory(defines.inventory.character_armor).insert(power_armor)
             local grid = player.character.grid
             if grid then
                 for _, eq in pairs(QS.get('equipment', { 'fusion-reactor-equipment' })) do
-                    if game.equipment_prototypes[eq] then
+                    if prototypes.equipment[eq] then
                         grid.put { name = eq }
                     end
                 end
@@ -219,11 +219,11 @@ function quickstart.on_player_created(event)
         end
 
         if QS.get('setup_power', false) then
-            if game.entity_prototypes['debug-energy-interface'] then
+            if prototypes.entity['debug-energy-interface'] then
                 local es = surface.create_entity { name = 'debug-energy-interface', position = { 0, 0 }, force = force, raise_built = true }
                 es.destructible = false
             end
-            if game.entity_prototypes['debug-substation'] then
+            if prototypes.entity['debug-substation'] then
                 local sb = surface.create_entity { name = 'debug-substation', position = { 0, 0 }, force = force, raise_built = true }
                 sb.destructible = false
             end
