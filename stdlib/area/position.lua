@@ -47,9 +47,9 @@ local function new(x, y)
 end
 
 --- Returns a correctly formated position object.
--- @usage Position.new({0, 0}) -- returns {x = 0, y = 0}
--- @tparam Concepts.Position pos the position table or array to convert
--- @treturn Concepts.Position
+---@usage Position.new({0, 0}) -- returns {x = 0, y = 0}
+---@param pos Concepts.Position pos the position table or array to convert
+---@return Concepts.Position
 function Position.new(pos)
     return new(pos.x or pos[1] or 0, pos.y or pos[2] or 0)
 end

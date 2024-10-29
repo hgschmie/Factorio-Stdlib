@@ -13,11 +13,11 @@ local table = require('__stdlib__/stdlib/utils/table')
 local math = require('__stdlib__/stdlib/utils/math')
 local color_list = require('__stdlib__/stdlib/utils/defines/color_list')
 
---- @table color @{defines.color}
+---@table color @{defines.color}
 Color.color = require('__stdlib__/stdlib/utils/defines/color')
---- @table anticolor @{defines.anticolor}
+---@table anticolor @{defines.anticolor}
 Color.anticolor = require('__stdlib__/stdlib/utils/defines/anticolor')
---- @table lightcolor @{defines.lightcolor}
+---@table lightcolor @{defines.lightcolor}
 Color.lightcolor = require('__stdlib__/stdlib/utils/defines/lightcolor')
 
 --- Color Constructors
@@ -116,7 +116,7 @@ function Color.from_params(r, g, b, a)
     local new = Color.normalize { r = r, g = g or r, b = b or r, a = a or 0.5 }
     return setmetatable(new, metatable)
 end
---- @see Color.from_params
+---@see Color.from_params
 Color.from_rgb = Color.from_params
 
 --- Converts a color in the array format to a color in the table format.
@@ -159,7 +159,7 @@ function Color.from_hex(color, alpha)
     return setmetatable(new, metatable)
 end
 
---- @section end
+---@section end
 
 --- Color Methods
 -- @section Color Methods
@@ -284,7 +284,7 @@ function Color.unary(color)
     return Color.len(color) < 1.5 and Color.white() or Color.black()
 end
 
---- @section end
+---@section end
 
 --- Color Functions
 -- @section Color Functions
@@ -342,7 +342,7 @@ function Color.to_array(color)
     return { color.r, color.g, color.b, color.a }
 end
 
---- @see Color.to_array
+---@see Color.to_array
 Color.pack = Color.to_array
 
 --- Return the color as 4 paramaters.
@@ -355,7 +355,7 @@ function Color.to_params(color)
     return color.r, color.g, color.b, color.a
 end
 
---- @see Color.to_params
+---@see Color.to_params
 Color.unpack = Color.to_params
 
 --- Return the Color as a string.
@@ -418,7 +418,7 @@ function Color.best_color_match(color)
     return closest
 end
 
---- @section end
+---@section end
 
 metatable = {
     __class = 'color',
